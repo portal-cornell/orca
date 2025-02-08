@@ -1,0 +1,4 @@
+[submodule "Metaworld"]
+	path = Metaworld
+	url = https://github.com/portal-cornell/Metaworld.git
+	branch = temporalot

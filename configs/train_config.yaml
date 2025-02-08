@@ -1,0 +1,54 @@
+# Reward fn
+reward_fn: orca # options are [orca, temporal_ot, threshold, dtw, ot, even, final_frame]
+use_ckpt: false
+ckpt_path: null
+tau: 1
+ent_reg: .01
+sdtw_smoothing: 5
+mask_k: 10
+threshold: 0.9
+niter: 100
+
+# hardware
+device: 'cuda'
+num_workers: 1
+
+# env + demo
+env_name: door-close-v2
+seed: 'r'
+camera_name: d
+obs_type: features
+num_frames: d # d for default, number of frames
+mismatched: False
+random_mismatched: False
+num_demos: 1
+context_num: 3 # context window used in TOT (diagonal smoothing)
+include_timestep: True
+
+# Parameters for random mismatched demos
+num_secs: 5  # Only used if RANDOM_MISMATCHED=True
+mismatched_level: 1  # Only used if RANDOM_MISMATCHED=True
+speed_type: fast # Only used if RANDOM_MISMATCHED=True
+random_mismatched_run_num: 0  # Only used if RANDOM_MISMATCHED=True
+
+# RL Algo
+train_steps: 1000000 
+discount_factor: .9
+expl_noise: .4
+min_expl_noise: 0.0
+
+# Logging
+wandb_mode: disabled
+n_eval_episodes: 10
+eval_period: 10000
+model_period: 100000
+video_period: 400
+wandb_project: TemporalOT
+wandb_tags: []
+
+defaults:
+  - _self_
+
+hydra:
+  run:
+    dir: ./train_logs/${now:%Y-%m-%d-%H-%M-%S-%f}_envt=${env_name}_rm=${reward_fn}_${uuid:}
