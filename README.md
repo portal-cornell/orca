@@ -2,7 +2,7 @@
 
 **[`Paper`](https://arxiv.org/)**
 
-This is an official implementation of ORCA (ORdered Coverage Alignment) for the paper:\
+This is an official implementation of ORCA (ORdered Coverage Alignment) for our ICML 2025 paper:\
 **Imitation Learning from a Single Temporally Misaligned Video**
 <br>
 <a href="https://www.willhuey.com/">William Huey*</a>,
