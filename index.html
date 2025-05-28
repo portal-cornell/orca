@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Imitation Learning from a Single Temporally Misaligned Video">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Imitation Learning from a Single Temporally Misaligned Video</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RQW73WXYW9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-RQW73WXYW9');
+  </script>
+  <script type="text/javascript" async 
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script> 
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.jpg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Imitation Learning from a Single Temporally Misaligned Video</h1>
+          <h3 class="title is-4 conference-authors"><a target="_blank"
+            href="https://icml.cc/">ICML 2025</a></h3>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://willhuey.com/">William Huey*</a>,</span>
+            <span class="author-block">
+              <a href="https://lunay0yuki.github.io/">Yuki (Huaxiaoyue) Wang*</a>,</span>
+            <span class="author-block">
+                <a href="https://annshin.github.io/">Anne Wu</a>,</span>
+            <span class="author-block">
+                  <a href="https://yoavartzi.com/">Yoav Artzi</a>,</span>
+            <span class="author-block">
+                <a href="https://www.sanjibanchoudhury.com/">Sanjiban Choudhury</sup></a>            
+          </div>
+
+          <br>
+          <div class="is-size-4">
+          <img src="./static/images/cornell-university-logo.png" width="40%" hspace="20"></img>
+          </div>
+          
+          <div class="column has-text-centered">
+            
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/pdf/2502.20380"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2502.05397"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/portal-cornell/orca/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h1 class="title is-3">ORCA (Ordered Coverage Alignment) <br> is a principled, sequence-level reward function <br> to learn from ONE temporally misaligned demonstration.</h1>
+        <br>
+        <img src="./static/images/main_fig.png" width="1500">
+        </div>
+    </div>
+    <!-- Dataset -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+          <p style="text-align: left;">
+            We examine the problem of learning sequential tasks from a single visual demonstration.
+            A key challenge arises when demonstrations are temporally misaligned due to variations in timing, differences in embodiment, or inconsistencies in execution. Existing approaches treat imitation as a distribution-matching problem, aligning individual frames between the agent and the demonstration. However, we show that such frame-level matching fails to enforce temporal ordering or ensure consistent progress.
+            Our key insight is that matching should instead be defined at the level of sequences. 
+            We propose that perfect matching occurs when one sequence successfully covers all the subgoals in the same order as the other sequence. 
+            We present ORCA (ORdered Coverage Alignment), a dense per-timestep reward function that measures the probability of the agent covering demonstration frames in the correct order. 
+            On temporally misaligned demonstrations, we show that agents trained with the ORCA reward achieve 4.5x improvement (0.11 -> 0.50 average normalized returns) for Meta-world tasks and 6.6x improvement (6.55 -> 43.3 average returns) for Humanoid-v4 tasks compared to the best frame-level matching algorithms. 
+            We also provide empirical analysis showing that ORCA is robust to varying levels of temporal misalignment.
+          </p>
+      </div>
+    </div>
+    <br>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Results</h2>
+        <p style="text-align: left;">
+          ORCA consistently outperforms state-of the art frame-level matching algorithms: Dynamic Time Warping (DTW), Optimal Transport (OT), and TemporalOT (OT with temporal constraints) given a single temporally misaligned demonstration.
+      </p>
+      <br>
+        <img src="./static/images/main_table.png" width="100%">
+    </div> 
+    </div>  
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">ORCA Enforces Subgoal Ordering</h2>
+        <img src="./static/images/metaworld_order_fails.png" width="100%">
+        <br><br>
+        <p style="text-align: left;">
+        ✅ ORCA enforces subgoals to be visited in the same order as the demonstration. 
+        <br>
+        Meanwhile:
+        <br>
+            ❌ OT allows later subgoals to match with earlier subgoals in its matching matrix.
+        <br>
+            ❌ Despite TemporalOT's temporal constraints, it can still violate ordering depending on demonstration length and mask window size.
+      </p>
+    </div> 
+  </div>  
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">ORCA Encourges Full Subgoal Coverage</h2>
+        <img src="./static/images/tot_slow_filmstrip.png" width="100%">
+        <br><br>
+        <p style="text-align: left;">
+        ✅ ORCA successfully trains an efficient agent to cover all subgoals as soon as possible.
+        <br>
+        Meanwhile:
+        <br>
+            ❌ OT/TemporalOT makes the agent spend equal time on each subgoal, often causing the agent to exhaust timesteps before completing the task.
+      </p>
+    </div> 
+  </div>  
+    
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column" id="Paper">
+        <h2 class="title is-3">Paper</h2>
+    <div class="paper-thumbnail">
+        <a href="https://arxiv.org/abs/2502.05397/">
+            <img class="layered-paper-big" width="100%" src="./static/images/orca_preview.png" alt="Paper thumbnail"/>
+        </a>
+    </div>
+    <div class="paper-info">
+        <h3 class="title is-4" style="text-align: center;">BibTex</h3>
+        <pre style="overflow-x:hidden; text-wrap:wrap; white-space: pre-wrap;"><code>
+@misc{huey2025imitationlearningsingletemporally,
+  title={Imitation Learning from a Single Temporally Misaligned Video}, 
+  author={William Huey and Huaxiaoyue Wang and Anne Wu and Yoav Artzi and Sanjiban Choudhury},
+  year={2025},
+  eprint={2502.05397},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2502.05397}, 
+}
+        </code></pre> 
+    </div>
+    </div>
+</div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            <a href="https://github.com/portal-cornell/MOSAIC/tree/gh-pages">Fork</a> of a <a href="https://github.com/nerfies/nerfies.github.io">fork</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
